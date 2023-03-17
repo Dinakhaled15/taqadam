@@ -18,7 +18,6 @@ struct HomePage: View {
                 .resizable()
                 .frame(height: 230)
             VStack(spacing : 20){
-           
                 Text("Hello, I’m here to help you get the career that you want")
                     .foregroundColor(.color)
                     .font(.system(size: 26))
@@ -36,8 +35,8 @@ struct HomePage: View {
                 TextField("Enter the Country desired", text: $Country)
                     .textFieldStyle(CaptionTextFieldStyle())
             
-                
                 Spacer()
+           
                 Button{
                     
                 }label: {
@@ -51,6 +50,8 @@ struct HomePage: View {
                             .font(.system(size: 25))
                     }
                 }
+                .padding(.top,35)
+               
         
             }.padding(.horizontal)
         }
