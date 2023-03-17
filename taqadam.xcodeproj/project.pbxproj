@@ -54,10 +54,10 @@
 			isa = PBXGroup;
 			children = (
 				F5986BBC29C3979400CEFED9 /* taqadamApp.swift */,
+				5D4C42C829C435FE009F71DF /* HomePage.swift */,
 				F5986BBE29C3979400CEFED9 /* ContentView.swift */,
 				F5986BC029C3979500CEFED9 /* Assets.xcassets */,
 				F5986BC229C3979500CEFED9 /* Preview Content */,
-				5D4C42C829C435FE009F71DF /* HomePage.swift */,
 			);
 			path = taqadam;
 			sourceTree = "<group>";

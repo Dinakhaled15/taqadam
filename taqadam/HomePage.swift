@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct HomePage: View {
-    @State var Name = ""
+    @State var JobTitle = ""
+    @State var CompanyName = ""
+    @State var Country = ""
+    
     var body: some View {
-        VStack{
+        VStack(spacing : 30){
             Image("MainpagePic")
             Text("Hello, I’m here to help you get the career that you want")
                 .foregroundColor(.blue)
@@ -18,10 +21,19 @@ struct HomePage: View {
                 .multilineTextAlignment(.center)
                 .padding(.horizontal,15)
             
-            TextField("Enter the name ", text: $Name)
+            TextField("Enter The Job Title", text: $JobTitle)
                 .textFieldStyle(CaptionTextFieldStyle())
                 .padding(.horizontal)
-
+            
+            TextField("Enter the name of the Company", text: $CompanyName)
+                .textFieldStyle(CaptionTextFieldStyle())
+                .padding(.horizontal)
+            
+            TextField("Enter the Country desired", text: $Country)
+                .textFieldStyle(CaptionTextFieldStyle())
+                .padding(.horizontal)
+            
+         Spacer()
             Button{
                 
             }label: {
@@ -35,6 +47,7 @@ struct HomePage: View {
                         .font(.system(size: 25))
                 }.padding(.horizontal)
             }
+            .padding(.bottom)
         }
     }
 }
