@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5930E55629C44D5D0005E937 /* vectaraApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5930E55529C44D5D0005E937 /* vectaraApi.swift */; };
+		5930E55929C461B50005E937 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5930E55829C461B50005E937 /* OpenAISwift */; };
+		5930E55C29C468F30005E937 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5930E55B29C468F30005E937 /* Alamofire */; };
 		5D4C42C929C435FE009F71DF /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4C42C829C435FE009F71DF /* HomePage.swift */; };
 		5D4C42CB29C43A92009F71DF /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4C42CA29C43A92009F71DF /* Extentions.swift */; };
 		5D4C42D129C43C2A009F71DF /* OnbordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4C42D029C43C2A009F71DF /* OnbordingView.swift */; };
@@ -17,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5930E55529C44D5D0005E937 /* vectaraApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vectaraApi.swift; sourceTree = "<group>"; };
 		5D4C42C829C435FE009F71DF /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		5D4C42CA29C43A92009F71DF /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		5D4C42D029C43C2A009F71DF /* OnbordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbordingView.swift; sourceTree = "<group>"; };
@@ -32,12 +36,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5930E55929C461B50005E937 /* OpenAISwift in Frameworks */,
+				5930E55C29C468F30005E937 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5930E55429C44CF80005E937 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5930E55529C44D5D0005E937 /* vectaraApi.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		5D4C42CC29C43A96009F71DF /* helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				F5986BBC29C3979400CEFED9 /* taqadamApp.swift */,
+				5930E55429C44CF80005E937 /* Model */,
 				5D4C42CD29C43B56009F71DF /* Views */,
 				F5986BC029C3979500CEFED9 /* Assets.xcassets */,
 				5D4C42CC29C43A96009F71DF /* helper */,
@@ -108,6 +123,10 @@
 			dependencies = (
 			);
 			name = taqadam;
+			packageProductDependencies = (
+				5930E55829C461B50005E937 /* OpenAISwift */,
+				5930E55B29C468F30005E937 /* Alamofire */,
+			);
 			productName = taqadam;
 			productReference = F5986BB929C3979400CEFED9 /* taqadam.app */;
 			productType = "com.apple.product-type.application";
@@ -136,6 +155,10 @@
 				Base,
 			);
 			mainGroup = F5986BB029C3979400CEFED9;
+			packageReferences = (
+				5930E55729C461B50005E937 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
+				5930E55A29C468F30005E937 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = F5986BBA29C3979400CEFED9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -167,6 +190,7 @@
 				F5986BBD29C3979400CEFED9 /* taqadamApp.swift in Sources */,
 				5D4C42D129C43C2A009F71DF /* OnbordingView.swift in Sources */,
 				D2D8E32029C439A600B8E4EC /* SplashScreenView.swift in Sources */,
+				5930E55629C44D5D0005E937 /* vectaraApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,7 +247,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -277,7 +301,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -367,6 +391,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5930E55729C461B50005E937 /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adamrushy/OpenAISwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		5930E55A29C468F30005E937 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5930E55829C461B50005E937 /* OpenAISwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5930E55729C461B50005E937 /* XCRemoteSwiftPackageReference "OpenAISwift" */;
+			productName = OpenAISwift;
+		};
+		5930E55B29C468F30005E937 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5930E55A29C468F30005E937 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F5986BB129C3979400CEFED9 /* Project object */;
 }
