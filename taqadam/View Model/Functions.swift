@@ -80,6 +80,7 @@ class functions: ObservableObject {
     @Published var myVslue: GetInfo?
     let encoder = JSONEncoder()
     let decoder = JSONDecoder()
+    @Published var array: [String]?
     
     let headers: HTTPHeaders = [
         "Content-Type": "application/json",
@@ -108,7 +109,13 @@ class functions: ObservableObject {
                     do {
 //                        print(String(data: data, encoding: .utf8))
                         let response = try self.decoder.decode(GetInfo.self, from: data)
+                        
                         self.myVslue = response
+                        
+                        if(self.myVslue?.choices[0].text != nil){
+                            self.array = self.myVslue?.choices[0].text.components(separatedBy: "\n\n")
+                        }
+                        
 //                        print(self.JobTitle)
 //                        print(self.CompanyName)
 //                        print(self.Country)

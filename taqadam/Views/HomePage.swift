@@ -71,10 +71,7 @@ struct HomePage: View {
                 .fullScreenCover(isPresented: $showSecondPage) {
                     jobInfo()
                 }
-                VStack{
-                    Text(getdata.myVslue?.choices[0].text ?? "\n\nRiyadh is the capital city of S.")
-                        
-                }
+               
             }.padding(.horizontal)
         }
     }

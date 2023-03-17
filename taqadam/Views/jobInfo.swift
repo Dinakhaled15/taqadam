@@ -13,11 +13,29 @@ struct jobInfo: View {
     var body: some View {
         
         VStack{
+
+                Text("To Become A \(getdata.JobTitle):")
+                    .font(.title)
+                    .scaledToFit()
+                    .minimumScaleFactor(0.01)
+                    .padding()
+            
+            if(getdata.myVslue?.choices[0].text == nil){
+                ProgressView()
+            }else{
+            
+                Text(getdata.array![1])
+                    
+                Text("the next")
+                
+            }
+
            
-            Text(getdata.myVslue?.choices[0].text ?? "error")
             
         }.onAppear{
             getdata.getData()
+            print("here")
+          //  print(getdata.myVslue?.choices[0].text)
         }
         
     }
