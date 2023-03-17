@@ -13,13 +13,14 @@ struct HomePage: View {
     @State var Country = ""
     
     var body: some View {
-        VStack(spacing : 30){
+        VStack(spacing : 20){
             Image("MainpagePic")
             Text("Hello, I’m here to help you get the career that you want")
-                .foregroundColor(.blue)
+                .foregroundColor(.color)
                 .font(.system(size: 26))
                 .multilineTextAlignment(.center)
                 .padding(.horizontal,15)
+                .padding(.vertical,30)
             
             TextField("Enter The Job Title", text: $JobTitle)
                 .textFieldStyle(CaptionTextFieldStyle())
@@ -39,7 +40,7 @@ struct HomePage: View {
             }label: {
                 ZStack{
                     Rectangle()
-                        .foregroundColor(.blue)
+                        .foregroundColor(.color)
                         .frame(height: 55)
                         .cornerRadius(14)
                     Text("Result")
@@ -65,7 +66,7 @@ struct CaptionTextFieldStyle: TextFieldStyle {
             .overlay(
                 RoundedRectangle(cornerRadius: 14)
                     .stroke(lineWidth: 0.7)
-                    .foregroundColor(Color.blue)
+                    .foregroundColor(Color.color)
             )
         
     }

@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct SplashScreenView: View {
-    
-    @State private var isActive = false
+    @AppStorage("ShowOnboarded") var ShowOnboarded: Bool = true
+    @State private var isEnded = false
     @State private var size = 0.8
     @State private var opacity = 0.5
     
@@ -17,13 +17,16 @@ struct SplashScreenView: View {
     var body: some View {
         
         
-        if isActive{
-           // OnboardingView()
-            ContentView()
+        if isEnded{
+            if ShowOnboarded {
+                OnbordingView()
+            } else {
+           HomePage()
+            }
         }else {
            
             ZStack{
-                Color("Color")
+                Color.color
                 VStack{
                    Image("logo")
                   
@@ -41,7 +44,7 @@ struct SplashScreenView: View {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
                     
                     withAnimation{
-                        self.isActive = true
+                        self.isEnded = true
                     }
                 }
             }
