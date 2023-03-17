@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5D4C42C929C435FE009F71DF /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4C42C829C435FE009F71DF /* HomePage.swift */; };
+		D2D8E32029C439A600B8E4EC /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8E31F29C439A600B8E4EC /* SplashScreenView.swift */; };
 		F5986BBD29C3979400CEFED9 /* taqadamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5986BBC29C3979400CEFED9 /* taqadamApp.swift */; };
 		F5986BBF29C3979400CEFED9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5986BBE29C3979400CEFED9 /* ContentView.swift */; };
 		F5986BC129C3979500CEFED9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5986BC029C3979500CEFED9 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 
 /* Begin PBXFileReference section */
 		5D4C42C829C435FE009F71DF /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
+		D2D8E31F29C439A600B8E4EC /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		F5986BB929C3979400CEFED9 /* taqadam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = taqadam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5986BBC29C3979400CEFED9 /* taqadamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taqadamApp.swift; sourceTree = "<group>"; };
 		F5986BBE29C3979400CEFED9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 				F5986BBC29C3979400CEFED9 /* taqadamApp.swift */,
 				5D4C42C829C435FE009F71DF /* HomePage.swift */,
 				F5986BBE29C3979400CEFED9 /* ContentView.swift */,
+				D2D8E31F29C439A600B8E4EC /* SplashScreenView.swift */,
 				F5986BC029C3979500CEFED9 /* Assets.xcassets */,
 				F5986BC229C3979500CEFED9 /* Preview Content */,
 			);
@@ -143,6 +146,7 @@
 				F5986BBF29C3979400CEFED9 /* ContentView.swift in Sources */,
 				5D4C42C929C435FE009F71DF /* HomePage.swift in Sources */,
 				F5986BBD29C3979400CEFED9 /* taqadamApp.swift in Sources */,
+				D2D8E32029C439A600B8E4EC /* SplashScreenView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
