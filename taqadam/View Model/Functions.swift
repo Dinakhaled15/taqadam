@@ -74,9 +74,9 @@ import Alamofire
 
 
 class functions: ObservableObject {
-    @State var JobTitle = "software engineer"
-    @State var CompanyName = "aramco"
-    @State var Country = "Saudi Arabia"
+    @State var JobTitle = ""
+    @State var CompanyName = ""
+    @State var Country = ""
     @Published var myVslue: GetInfo?
     let encoder = JSONEncoder()
     let decoder = JSONDecoder()
