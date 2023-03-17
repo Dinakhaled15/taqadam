@@ -12,9 +12,9 @@ import Alamofire
 
 struct HomePage: View {
     @State var showSecondPage: Bool = false
-    @State var JobTitle = "software engineer"
-    @State var CompanyName = "aramco"
-    @State var Country = "Saudi Arabia"
+    @State var JobTitle = ""
+    @State var CompanyName = ""
+    @State var Country = ""
     @StateObject var getdata : functions = functions()
 //    @State var myvalue: GetInfo?
  //   @State var myVslue: GetInfo?
@@ -71,10 +71,7 @@ struct HomePage: View {
                 .fullScreenCover(isPresented: $showSecondPage) {
                     jobInfo()
                 }
-                VStack{
-                    Text(getdata.myVslue?.choices[0].text ?? "\n\nRiyadh is the capital city of S.")
-                        
-                }
+               
             }.padding(.horizontal)
         }
     }
