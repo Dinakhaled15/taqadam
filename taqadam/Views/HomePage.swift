@@ -25,14 +25,14 @@ struct HomePage: View {
                     .padding(.horizontal,15)
                     .padding(.vertical,30)
        
-                TextField("Enter The Job Title", text: $JobTitle)
+                TextField("Enter the job title", text: $JobTitle)
                     .textFieldStyle(CaptionTextFieldStyle())
         
-                TextField("Enter the name of the Company", text: $CompanyName)
+                TextField("Enter the name of the company", text: $CompanyName)
                     .textFieldStyle(CaptionTextFieldStyle())
                
                 
-                TextField("Enter the Country desired", text: $Country)
+                TextField("Enter the country desired", text: $Country)
                     .textFieldStyle(CaptionTextFieldStyle())
             
                 Spacer()

@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  taqadam
+
+  Created by hoton on 25/08/1444 AH.
+  
+*/
+
+"Find Your Future Career in any company you want" ="اوجد وظيفتك المستقبليه في الشركه التي تريدها" ;
+"Start" = "إبدأ" ;
+"Hello, I’m here to help you get the career that you want" = "  مرحبًا ، انا هنا لمساعدتك في التقدم ل";
+"Enter the job title" = "ادخل المسمى الوظيفي";
+"Enter the name of the company" = "ادخل اسم الشركة";
+"Enter the country desired" = "ادخل البلد المطلوب";
+"Result" = "النتيجة";
+
