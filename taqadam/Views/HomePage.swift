@@ -15,55 +15,16 @@ struct HomePage: View {
     @State var JobTitle = "software engineer"
     @State var CompanyName = "aramco"
     @State var Country = "Saudi Arabia"
+    @StateObject var getdata : functions = functions()
 //    @State var myvalue: GetInfo?
-    @State var myVslue: GetInfo?
-    let encoder = JSONEncoder()
-    let decoder = JSONDecoder()
+ //   @State var myVslue: GetInfo?
+ //   let encoder = JSONEncoder()
+   // let decoder = JSONDecoder()
     
-    let headers: HTTPHeaders = [
-        "Content-Type": "application/json",
-        "customer-id":"4236465023",
-        "x-api-key": "zqt__INTfwOKqCNm1oNcq3JXbjDXA1GJgRNBOYVseg"
-    ]
+   
    
 
-   
-    func getData()  {
-        let urlString = "https://experimental.willow.vectara.io/v1/completions"
-        
-        guard let url = URL(string: urlString) else { return }
-        var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.setValue("4236465023", forHTTPHeaderField: "customer-id")
-            request.setValue("zqt__INTfwOKqCNm1oNcq3JXbjDXA1GJgRNBOYVseg", forHTTPHeaderField: "x-api-key")
-//        let prompt = "What kind of skills a \(JobTitle) at \(CompanyName) Company in \(Country) that i could do to get this job step by step??"
-        let prompt = "what is the capital city of saudi arabia?"
-        let requestInput = RequestInput(model: "text-davinci-003", prompt: prompt, max_tokens: 256, temperature: 0)
-        
-        encoder.outputFormatting = .prettyPrinted
-        let body = try! encoder.encode(requestInput)
-        request.httpBody = body
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            DispatchQueue.main.async {
-                if let data = data {
-                    do {
-                        print(String(data: data, encoding: .utf8))
-                        let response = try decoder.decode(GetInfo.self, from: data)
-                        myVslue = response
-                        print(JobTitle)
-                        print(CompanyName)
-                        print(Country)
-                        print(response)
-                        
-                    } catch(let error) {
-                        print(error.localizedDescription)
-                    }
-                }
-            }
-          
-        }.resume()
-    }
+
 
     
     var body: some View {
@@ -93,8 +54,8 @@ struct HomePage: View {
            
                 Button{
                     guard !JobTitle.isEmpty && !CompanyName.isEmpty else { return }
-                    getData()
-                    showSecondPage = true
+                    getdata.getData()
+                  showSecondPage = true
                 }label: {
                     ZStack{
                         Rectangle()
@@ -110,9 +71,10 @@ struct HomePage: View {
                 .fullScreenCover(isPresented: $showSecondPage) {
                     jobInfo()
                 }
-                
-                Text(myVslue?.choices[0].text ?? "\n\nRiyadh is the capital city of Saudi Arabia.")
-        
+                VStack{
+                    Text(getdata.myVslue?.choices[0].text ?? "\n\nRiyadh is the capital city of S.")
+                        
+                }
             }.padding(.horizontal)
         }
     }

@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct jobInfo: View {
+    @StateObject var getdata : functions = functions()
     
-    var home: HomePage = HomePage()
     var body: some View {
         
-        Text(home.myVslue?.choices[0].text ?? "\n\nRiyadh is the capital city of Saudi Arabiahhhhhh")
+        VStack{
+           
+            Text(getdata.myVslue?.choices[0].text ?? "error")
+            
+        }.onAppear{
+            getdata.getData()
+        }
+        
     }
 }
 
