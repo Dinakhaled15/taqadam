@@ -16,63 +16,67 @@ struct HomePage: View {
     @State var CompanyName = ""
     @State var Country = ""
     @StateObject var getdata : functions = functions()
-//    @State var myvalue: GetInfo?
- //   @State var myVslue: GetInfo?
- //   let encoder = JSONEncoder()
-   // let decoder = JSONDecoder()
+    //    @State var myvalue: GetInfo?
+    //   @State var myVslue: GetInfo?
+    //   let encoder = JSONEncoder()
+    // let decoder = JSONDecoder()
     
-   
-   
-
-
-
+    
+    
+    
+    
+    
     
     var body: some View {
-        ScrollView{
-            Image("MainpagePic")
-                .resizable()
-                .frame(height: 230)
-            VStack(spacing : 20){
-                Text("Hello, I’m here to help you get the career that you want")
-                    .foregroundColor(.color)
-                    .font(.system(size: 26))
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal,15)
-                    .padding(.vertical,30)
-       
-                TextField("Enter the job title", text: $JobTitle)
-                    .textFieldStyle(CaptionTextFieldStyle())
-        
-                TextField("Enter the name of the company", text: $CompanyName)
-                    .textFieldStyle(CaptionTextFieldStyle())
-               
-                
-                TextField("Enter the country desired", text: $Country)
-                    .textFieldStyle(CaptionTextFieldStyle())
+        NavigationView {
             
-                Spacer()
-           
-                Button{
-                    guard !JobTitle.isEmpty && !CompanyName.isEmpty else { return }
-                    getdata.getData()
-                  showSecondPage = true
-                }label: {
-                    ZStack{
-                        Rectangle()
-                            .foregroundColor(.color)
-                            .frame(height: 55)
-                            .cornerRadius(14)
-                        Text("Result")
-                            .foregroundColor(.white)
-                            .font(.system(size: 25))
+            ScrollView{
+                Image("MainpagePic")
+                    .resizable()
+                    .frame(height: 230)
+                VStack(spacing : 20){
+                    Text("Hello, I’m here to help you get the career that you want")
+                        .foregroundColor(.color)
+                        .font(.system(size: 26))
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal,15)
+                        .padding(.vertical,30)
+                    
+                    TextField("Enter the job title", text: $JobTitle)
+                        .textFieldStyle(CaptionTextFieldStyle())
+                    
+                    TextField("Enter the name of the company", text: $CompanyName)
+                        .textFieldStyle(CaptionTextFieldStyle())
+                    
+                    
+                    TextField("Enter the country desired", text: $Country)
+                        .textFieldStyle(CaptionTextFieldStyle())
+                    
+                    Spacer()
+                    
+                    NavigationLink{
+                        
+                        
+                        jobInfo()
+                    }label: {
+                        ZStack{
+                            Rectangle()
+                                .foregroundColor(.color)
+                                .frame(height: 55)
+                                .cornerRadius(14)
+                            Text("Result")
+                                .foregroundColor(.white)
+                                .font(.system(size: 25))
+                        }
                     }
-                }
-                .padding(.top,35)
-                .fullScreenCover(isPresented: $showSecondPage) {
-                    jobInfo()
-                }
-               
-            }.padding(.horizontal)
+                    .padding(.top,35)
+                    .onTapGesture {
+                        guard !JobTitle.isEmpty && !CompanyName.isEmpty else { return }
+                        getdata.getData()
+                    }
+                    
+                }.padding(.horizontal)
+            }
         }
     }
 }

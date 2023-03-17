@@ -23,10 +23,26 @@ struct jobInfo: View {
             if(getdata.myVslue?.choices[0].text == nil){
                 ProgressView()
             }else{
-            
-                Text(getdata.array![1])
-                    
-                Text("the next")
+                ScrollView {
+                    ForEach(getdata.array! , id: \.self) { Element in
+                        if Element == "" {
+                            
+                        } else {
+                            Text(Element)
+                                .multilineTextAlignment(.leading)
+                                .padding(.horizontal)
+                                .frame(maxWidth: .infinity , minHeight: 100)
+                                .background(Color.lightGray)
+                                .cornerRadius(20)
+                                .padding(.vertical, 7)
+                                .padding(.horizontal)
+                            
+                        }
+                        
+                    }
+                }
+                
+   
                 
             }
 
@@ -34,8 +50,7 @@ struct jobInfo: View {
             
         }.onAppear{
             getdata.getData()
-            print("here")
-          //  print(getdata.myVslue?.choices[0].text)
+    
         }
         
     }
