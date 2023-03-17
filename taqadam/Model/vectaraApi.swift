@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct vectaraApi: Decodable {
+struct RequestInput: Encodable {
     var model: String
     var prompt: String
-    var max_token: Int
+    var max_tokens: Int
     var temperature: Int
 }
 

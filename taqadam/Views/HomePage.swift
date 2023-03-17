@@ -8,10 +8,15 @@
 import SwiftUI
 import Alamofire
 
+
+
 struct HomePage: View {
-    @State var JobTitle = ""
-    @State var CompanyName = ""
-    @State var Country = ""
+    @State var showSecondPage: Bool = false
+    @State var JobTitle = "software engineer"
+    @State var CompanyName = "aramco"
+    @State var Country = "Saudi Arabia"
+//    @State var myvalue: GetInfo?
+    @State var myVslue: GetInfo?
     let encoder = JSONEncoder()
     let decoder = JSONDecoder()
     
@@ -23,7 +28,7 @@ struct HomePage: View {
    
 
    
-    func getData() {
+    func getData()  {
         let urlString = "https://experimental.willow.vectara.io/v1/completions"
         
         guard let url = URL(string: urlString) else { return }
@@ -32,15 +37,9 @@ struct HomePage: View {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.setValue("4236465023", forHTTPHeaderField: "customer-id")
             request.setValue("zqt__INTfwOKqCNm1oNcq3JXbjDXA1GJgRNBOYVseg", forHTTPHeaderField: "x-api-key")
-        let requestInput = RequestInput(model: "text-davinci-003", prompt: "what is life", max_tokens: 256, temperature: 0)
-//        do{
-//            request.httpBody = try JSONSerialization.data(
-//                withJSONObject: requestInput,
-//                options: []
-//            )
-//        } catch(let error) {
-//            print(error.localizedDescription)
-//        }
+//        let prompt = "What kind of skills a \(JobTitle) at \(CompanyName) Company in \(Country) that i could do to get this job step by step??"
+        let prompt = "what is the capital city of saudi arabia?"
+        let requestInput = RequestInput(model: "text-davinci-003", prompt: prompt, max_tokens: 256, temperature: 0)
         
         encoder.outputFormatting = .prettyPrinted
         let body = try! encoder.encode(requestInput)
@@ -51,19 +50,21 @@ struct HomePage: View {
                     do {
                         print(String(data: data, encoding: .utf8))
                         let response = try decoder.decode(GetInfo.self, from: data)
+                        myVslue = response
+                        print(JobTitle)
+                        print(CompanyName)
+                        print(Country)
                         print(response)
+                        
                     } catch(let error) {
                         print(error.localizedDescription)
                     }
-                    
-//                    print("ttttttt")
-//                    print(response)
-//                    guard let data = data else { return }
                 }
             }
           
         }.resume()
     }
+
     
     var body: some View {
         ScrollView{
@@ -91,7 +92,9 @@ struct HomePage: View {
                 Spacer()
            
                 Button{
+                    guard !JobTitle.isEmpty && !CompanyName.isEmpty else { return }
                     getData()
+                    showSecondPage = true
                 }label: {
                     ZStack{
                         Rectangle()
@@ -104,7 +107,11 @@ struct HomePage: View {
                     }
                 }
                 .padding(.top,35)
-               
+                .fullScreenCover(isPresented: $showSecondPage) {
+                    jobInfo()
+                }
+                
+                Text(myVslue?.choices[0].text ?? "\n\nRiyadh is the capital city of Saudi Arabia.")
         
             }.padding(.horizontal)
         }
@@ -130,9 +137,4 @@ struct CaptionTextFieldStyle: TextFieldStyle {
     }
 }
 
-struct RequestInput: Encodable {
-    var model: String
-    var prompt: String
-    var max_tokens: Int
-    var temperature: Int
-}
+
