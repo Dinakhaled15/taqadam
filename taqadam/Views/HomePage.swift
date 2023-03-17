@@ -12,9 +12,9 @@ import Alamofire
 
 struct HomePage: View {
     @State var showSecondPage: Bool = false
-    @State var JobTitle = "software engineer"
-    @State var CompanyName = "aramco"
-    @State var Country = "Saudi Arabia"
+    @State var JobTitle = ""
+    @State var CompanyName = ""
+    @State var Country = ""
     @StateObject var getdata : functions = functions()
     //    @State var myvalue: GetInfo?
     //   @State var myVslue: GetInfo?
