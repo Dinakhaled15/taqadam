@@ -11,10 +11,10 @@ import Alamofire
 
 
 struct HomePage: View {
-    @State var showSecondPage: Bool = false
+  
     @State var JobTitle = ""
     @State var CompanyName = ""
-    @State var Country = ""
+   
     @StateObject var getdata : functions = functions()
     //    @State var myvalue: GetInfo?
     //   @State var myVslue: GetInfo?
@@ -49,15 +49,12 @@ struct HomePage: View {
                         .textFieldStyle(CaptionTextFieldStyle())
                     
                     
-                    TextField("Enter the country desired", text: $Country)
-                        .textFieldStyle(CaptionTextFieldStyle())
-                    
                     Spacer()
                     
                     NavigationLink{
                         
-                        
-                        jobInfo()
+                        jobInfo.init(jobTitle: JobTitle, componyName: CompanyName, JobTitle: $JobTitle)
+//                        jobInfo(JobTitle: $JobTitle)
                     }label: {
                         ZStack{
                             Rectangle()
@@ -72,7 +69,7 @@ struct HomePage: View {
                     .padding(.top,35)
                     .onTapGesture {
                         guard !JobTitle.isEmpty && !CompanyName.isEmpty else { return }
-                        getdata.getData()
+                        getdata.getData(JobTitle: JobTitle, CompanyName: CompanyName)
                     }
                     
                 }.padding(.horizontal)
