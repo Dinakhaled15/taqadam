@@ -39,7 +39,7 @@ class functions: ObservableObject {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("4236465023", forHTTPHeaderField: "customer-id")
         request.setValue("zqt__INTfwOKqCNm1oNcq3JXbjDXA1GJgRNBOYVseg", forHTTPHeaderField: "x-api-key")
-                let prompt = "What kind of skills a \(JobTitle) at \(CompanyName) Company in Saudi Arabia that i could do to get this job step by step??"
+                let prompt = "What kind of skills a \(JobTitle) at \(CompanyName) Company in Saudi Arabia that i could do to get this job step by step and make every step in a new line?"
         
         print(prompt)
 
@@ -54,11 +54,11 @@ class functions: ObservableObject {
                 if let data = data {
                     do {
                         let response = try self.decoder.decode(GetInfo.self, from: data)
-                        
+                        print(response)
                         self.myVslue = response
                         
                         if(self.myVslue?.choices[0].text != nil){
-                            self.array = self.myVslue?.choices[0].text.components(separatedBy: "\n\n")
+                            self.array = self.myVslue?.choices[0].text.components(separatedBy: "\n")
                         }
 
                     } catch(let error) {
