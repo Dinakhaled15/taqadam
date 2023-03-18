@@ -20,7 +20,8 @@ struct jobInfo: View {
                     .foregroundColor(.color)
                     .scaledToFit()
                     .minimumScaleFactor(0.01)
-                    .padding()
+            }
+                    .padding(10)
             
             if(getdata.myVslue?.choices[0].text == nil){
                 ProgressView()
@@ -34,9 +35,10 @@ struct jobInfo: View {
                                 .multilineTextAlignment(.leading)
                                 .padding(.horizontal)
                                 .frame(maxWidth: .infinity , minHeight: 100)
-                                .background(Color.lightGray)
-                                .cornerRadius(20)
-                                .padding(.vertical, 7)
+                                .background(Color.white)
+                                .cornerRadius(15)
+                                .shadow(color: Color(.black).opacity(0.05), radius: 10, x: 0, y: 0)
+                                .padding(.top, 7)
                                 .padding(.horizontal)
                             
                         }

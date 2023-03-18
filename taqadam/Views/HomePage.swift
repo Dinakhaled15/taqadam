@@ -33,7 +33,7 @@ struct HomePage: View {
                     .resizable()
                     .frame(height: 230)
                 VStack(spacing : 20){
-                    Text("Hello, I’m here to help you get the career that you want")
+                    Text("Hello, I'm here to help you find the skills for your desired job")
                         .foregroundColor(.color)
                         .font(.system(size: 26))
                         .multilineTextAlignment(.center)

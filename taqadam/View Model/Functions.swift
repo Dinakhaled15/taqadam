@@ -39,11 +39,12 @@ class functions: ObservableObject {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("4236465023", forHTTPHeaderField: "customer-id")
         request.setValue("zqt__INTfwOKqCNm1oNcq3JXbjDXA1GJgRNBOYVseg", forHTTPHeaderField: "x-api-key")
-                let prompt = "What kind of skills a \(JobTitle) at \(CompanyName) Company in Saudi Arabia that i could do to get this job step by step and make every step in a new line?"
+        let prompt = "What is important skills for \(JobTitle) at \(CompanyName) Company in saudi arabia that i could do to get this job step by step with making every step in a new line and what’s the best way to learn those skills in details With specifying  in details which is best for beginners and which is for the advanced and if you could give me places i could learn in and if there are other titles for similar job resposibilities?"
+//                let prompt = "What kind of skills a \(JobTitle) at \(CompanyName) Company in Saudi Arabia that i could do to get this job step by step and make every step in a new line?"
         
-        print(prompt)
+//        print(prompt)
 
-        let requestInput = RequestInput(model: "text-davinci-003", prompt: prompt, max_tokens: 256, temperature: 0)
+        let requestInput = RequestInput(model: "text-davinci-003", prompt: prompt, max_tokens: 856, temperature: 0)
         
         encoder.outputFormatting = .prettyPrinted
         let body = try! encoder.encode(requestInput)
@@ -54,7 +55,7 @@ class functions: ObservableObject {
                 if let data = data {
                     do {
                         let response = try self.decoder.decode(GetInfo.self, from: data)
-                        print(response)
+//                        print(response)
                         self.myVslue = response
                         
                         if(self.myVslue?.choices[0].text != nil){
