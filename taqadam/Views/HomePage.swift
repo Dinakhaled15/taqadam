@@ -50,9 +50,7 @@ struct HomePage: View {
                     Spacer()
                     
                     NavigationLink{
-                        
                         jobInfo.init(JobTitle: $JobTitle, componyName: $CompanyName)
-
                     }label: {
                         ZStack{
                             Rectangle()

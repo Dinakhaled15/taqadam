@@ -14,14 +14,13 @@ struct jobInfo: View {
     var body: some View {
         
         VStack{
-
-                Text("\(JobTitle) employee in \(componyName) have these skills :")
-                    .font(.title)
-                    .foregroundColor(.color)
-                    .scaledToFit()
-                    .minimumScaleFactor(0.01)
-            }
-                    .padding(10)
+            
+            Text("\(JobTitle) employee in \(componyName) have these skills :")
+                .font(.title)
+                .foregroundColor(.color)
+                .scaledToFit()
+                .minimumScaleFactor(0.01)
+                .padding()
             
             if(getdata.myVslue?.choices[0].text == nil){
                 ProgressView()
@@ -36,9 +35,8 @@ struct jobInfo: View {
                                 .padding(.horizontal)
                                 .frame(maxWidth: .infinity , minHeight: 100)
                                 .background(Color.white)
-                                .cornerRadius(15)
-                                .shadow(color: Color(.black).opacity(0.05), radius: 10, x: 0, y: 0)
-                                .padding(.top, 7)
+                                .cornerRadius(20)
+                                .padding(.vertical, 7)
                                 .padding(.horizontal)
                             
                         }
@@ -46,16 +44,15 @@ struct jobInfo: View {
                     }
                 }
                 
-   
+                
                 
             }
-
-           
+            
+            
             
         }.onAppear{
-            guard !JobTitle.isEmpty && !componyName.isEmpty else { return }
             getdata.getData(JobTitle: JobTitle, CompanyName: componyName)
-    
+            
         }
         
     }
