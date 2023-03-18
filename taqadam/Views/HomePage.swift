@@ -14,19 +14,17 @@ struct HomePage: View {
   
     @State var JobTitle = ""
     @State var CompanyName = ""
-   
+    var checkRequiredField :Bool{
+     if JobTitle.isEmpty || CompanyName.isEmpty {
+            return true
+        }
+        return false
+    }
+    
     @StateObject var getdata : functions = functions()
-    //    @State var myvalue: GetInfo?
-    //   @State var myVslue: GetInfo?
-    //   let encoder = JSONEncoder()
-    // let decoder = JSONDecoder()
+  
     
-    
-    
-    
-    
-    
-    
+
     var body: some View {
         NavigationView {
             
@@ -53,29 +51,29 @@ struct HomePage: View {
                     
                     NavigationLink{
                         
-                        jobInfo.init(jobTitle: JobTitle, componyName: CompanyName, JobTitle: $JobTitle)
-//                        jobInfo(JobTitle: $JobTitle)
+                        jobInfo.init(JobTitle: $JobTitle, componyName: $CompanyName)
+
                     }label: {
                         ZStack{
                             Rectangle()
-                                .foregroundColor(.color)
+                                .foregroundColor(checkRequiredField ?  .gray : .color)
                                 .frame(height: 55)
                                 .cornerRadius(14)
                             Text("Result")
                                 .foregroundColor(.white)
                                 .font(.system(size: 25))
                         }
-                    }
+                    }.disabled(checkRequiredField)
                     .padding(.top,35)
-                    .onTapGesture {
-                        guard !JobTitle.isEmpty && !CompanyName.isEmpty else { return }
-                        getdata.getData(JobTitle: JobTitle, CompanyName: CompanyName)
-                    }
-                    
+         
                 }.padding(.horizontal)
             }
         }
     }
+    
+  
+
+  
 }
 
 struct HomePage_Previews: PreviewProvider {

@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct jobInfo: View {
-    var jobTitle: String
-    var componyName:String
     @StateObject var getdata : functions = functions()
     @Binding var JobTitle :String
+    @Binding var componyName :String
     var body: some View {
         
         VStack{
 
-                Text("To Become A \(JobTitle):")
+                Text("\(JobTitle) employee in \(componyName) have these skills :")
                     .font(.title)
+                    .foregroundColor(.color)
                     .scaledToFit()
                     .minimumScaleFactor(0.01)
                     .padding()
@@ -51,7 +51,8 @@ struct jobInfo: View {
            
             
         }.onAppear{
-            getdata.getData(JobTitle: jobTitle, CompanyName: componyName)
+            guard !JobTitle.isEmpty && !componyName.isEmpty else { return }
+            getdata.getData(JobTitle: JobTitle, CompanyName: componyName)
     
         }
         
