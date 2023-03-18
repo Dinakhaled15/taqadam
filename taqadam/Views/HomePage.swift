@@ -37,7 +37,7 @@ struct HomePage: View {
                         .foregroundColor(.color)
                         .font(.system(size: 26))
                         .multilineTextAlignment(.center)
-                        .padding(.horizontal,15)
+                        .padding(.horizontal,13)
                         .padding(.vertical,30)
                     
                     TextField("Enter the job title", text: $JobTitle)

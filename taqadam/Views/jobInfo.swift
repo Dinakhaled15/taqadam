@@ -11,11 +11,11 @@ struct jobInfo: View {
     @StateObject var getdata : functions = functions()
     @Binding var JobTitle :String
     @Binding var componyName :String
+
     var body: some View {
         
         VStack{
-            
-            Text("\(JobTitle) employee in \(componyName) have these skills :")
+            Text("The important skills of \(JobTitle) in \(componyName) is: ")
                 .font(.title)
                 .foregroundColor(.color)
                 .scaledToFit()
@@ -26,22 +26,21 @@ struct jobInfo: View {
                 ProgressView()
             }else{
                 ScrollView {
-                    ForEach(getdata.array! , id: \.self) { Element in
-                        if Element == "" {
-                            
-                        } else {
-                            Text(Element)
-                                .multilineTextAlignment(.leading)
-                                .padding(.horizontal)
-                                .frame(maxWidth: .infinity , minHeight: 100)
-                                .background(Color.white)
-                                .cornerRadius(20)
-                                .padding(.vertical, 7)
-                                .padding(.horizontal)
-                            
-                        }
-                        
+                        ForEach(getdata.array! , id: \.self) { Element in
+                            if Element != "" {
+                                Text(Element)
+                                    .multilineTextAlignment(.leading)
+                                    .padding(.horizontal)
+                                    .frame(maxWidth: .infinity , minHeight: 100)
+                                    .background(Color.lightGray)
+                                    .cornerRadius(20)
+                                    .padding(.vertical, 7)
+                                    .padding(.horizontal)
+                                
+                            }
+                  
                     }
+                 
                 }
                 
                 

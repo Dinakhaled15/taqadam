@@ -19,6 +19,7 @@ class functions: ObservableObject {
     let encoder = JSONEncoder()
     let decoder = JSONDecoder()
     @Published var array: [String]?
+  
     
     let headers: HTTPHeaders = [
         "Content-Type": "application/json",
@@ -52,11 +53,11 @@ class functions: ObservableObject {
         request.setValue("4236465023", forHTTPHeaderField: "customer-id")
         request.setValue("zqt__INTfwOKqCNm1oNcq3JXbjDXA1GJgRNBOYVseg", forHTTPHeaderField: "x-api-key")
         let prompt = theQuestion
-//                let prompt = "What kind of skills a \(JobTitle) at \(CompanyName) Company in Saudi Arabia that i could do to get this job step by step and make every step in a new line?"
+
         
 //        print(prompt)
 
-        let requestInput = RequestInput(model: "text-davinci-003", prompt: prompt, max_tokens: 856, temperature: 0)
+        let requestInput = RequestInput(model: "text-davinci-003", prompt: prompt, max_tokens: 1000, temperature: 0)
         
         encoder.outputFormatting = .prettyPrinted
         let body = try! encoder.encode(requestInput)
