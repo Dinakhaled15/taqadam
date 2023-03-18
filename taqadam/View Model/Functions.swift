@@ -21,7 +21,7 @@ class functions: ObservableObject {
     let headers: HTTPHeaders = [
         "Content-Type": "application/json",
         "customer-id":"4236465023",
-        "x-api-key": "zqt__INTfwOKqCNm1oNcq3JXbjDXA1GJgRNBOYVseg"
+        "x-api-key": ""
     ]
     
 //    init(JobTitle1 : String , CompanyName1 :String){
