@@ -7,76 +7,12 @@
 
 import SwiftUI
 import Alamofire
-//
-//
-//class Functions {
-//    @State static var JobTitle = ""
-//    @State static var CompanyName = ""
-//    @State static var Country = ""
-//    static let encoder = JSONEncoder()
-//    static let decoder = JSONDecoder()
-//    
-//    let headers: HTTPHeaders = [
-//        "Content-Type": "application/json",
-//        "customer-id":"4236465023",
-//        "x-api-key": "zqt__INTfwOKqCNm1oNcq3JXbjDXA1GJgRNBOYVseg"
-//    ]
-//   
-//
-//   
-//    static func getData()  {
-//        let urlString = "https://experimental.willow.vectara.io/v1/completions"
-//        
-//        guard let url = URL(string: urlString) else { return }
-//        var request = URLRequest(url: url)
-//            request.httpMethod = "POST"
-//            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//            request.setValue("4236465023", forHTTPHeaderField: "customer-id")
-//            request.setValue("zqt__INTfwOKqCNm1oNcq3JXbjDXA1GJgRNBOYVseg", forHTTPHeaderField: "x-api-key")
-//        let prompt = "What kind of skills a \(JobTitle) at \(CompanyName) Company in \(Country) that i could do to get this job step by step??"
-//        let requestInput = RequestInput(model: "text-davinci-003", prompt: prompt, max_tokens: 256, temperature: 0)
-////        do{
-////            request.httpBody = try JSONSerialization.data(
-////                withJSONObject: requestInput,
-////                options: []
-////            )
-////        } catch(let error) {
-////            print(error.localizedDescription)
-////        }
-//        
-//        encoder.outputFormatting = .prettyPrinted
-//        let body = try! encoder.encode(requestInput)
-//        request.httpBody = body
-//        URLSession.shared.dataTask(with: request) { data, response, error in
-//            DispatchQueue.main.async {
-//                if let data = data {
-//                    do {
-//                        print(String(data: data, encoding: .utf8))
-//                        let response = try decoder.decode(GetInfo.self, from: data)
-//                        print(JobTitle)
-//                        print(CompanyName)
-//                        print(Country)
-//                        print(response)
-//                        
-//                    } catch(let error) {
-//                        print(error.localizedDescription)
-//                    }
-//                    
-////                    print("ttttttt")
-////                    print(response)
-////                    guard let data = data else { return }
-//                }
-//            }
-//          
-//        }.resume()
-//    }
-//}
-
 
 class functions: ObservableObject {
-    @State var JobTitle = ""
-    @State var CompanyName = ""
-    @State var Country = ""
+   
+//    let  JobTitle :String
+//    let CompanyName :String
+  
     @Published var myVslue: GetInfo?
     let encoder = JSONEncoder()
     let decoder = JSONDecoder()
@@ -87,7 +23,14 @@ class functions: ObservableObject {
         "customer-id":"4236465023",
         "x-api-key": "zqt__INTfwOKqCNm1oNcq3JXbjDXA1GJgRNBOYVseg"
     ]
-    func getData()  {
+    
+//    init(JobTitle1 : String , CompanyName1 :String){
+//          JobTitle = JobTitle1
+//        CompanyName = CompanyName1
+//    }
+    
+    func getData(JobTitle : String , CompanyName :String)  {
+        
         let urlString = "https://experimental.willow.vectara.io/v1/completions"
         
         guard let url = URL(string: urlString) else { return }
@@ -96,31 +39,28 @@ class functions: ObservableObject {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("4236465023", forHTTPHeaderField: "customer-id")
         request.setValue("zqt__INTfwOKqCNm1oNcq3JXbjDXA1GJgRNBOYVseg", forHTTPHeaderField: "x-api-key")
-                let prompt = "What kind of skills a \(JobTitle) at \(CompanyName) Company in \(Country) that i could do to get this job step by step??"
-//        let prompt = "what is the capital city of saudi arabia?"
+                let prompt = "What kind of skills a \(JobTitle) at \(CompanyName) Company in Saudi Arabia that i could do to get this job step by step and make every step in a new line?"
+        
+        print(prompt)
+
         let requestInput = RequestInput(model: "text-davinci-003", prompt: prompt, max_tokens: 256, temperature: 0)
         
         encoder.outputFormatting = .prettyPrinted
         let body = try! encoder.encode(requestInput)
         request.httpBody = body
+        
         URLSession.shared.dataTask(with: request) { data, response, error in
             DispatchQueue.main.async {
                 if let data = data {
                     do {
-//                        print(String(data: data, encoding: .utf8))
                         let response = try self.decoder.decode(GetInfo.self, from: data)
-                        
+                        print(response)
                         self.myVslue = response
                         
                         if(self.myVslue?.choices[0].text != nil){
-                            self.array = self.myVslue?.choices[0].text.components(separatedBy: "\n\n")
+                            self.array = self.myVslue?.choices[0].text.components(separatedBy: "\n")
                         }
-                        
-//                        print(self.JobTitle)
-//                        print(self.CompanyName)
-//                        print(self.Country)
-//                        print(response)
-                        
+
                     } catch(let error) {
                         print(error.localizedDescription)
                     }
