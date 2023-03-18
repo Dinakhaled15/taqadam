@@ -2,6 +2,7 @@
 
 
 
-
-<img src="[https://user-images.githubusercontent.com/link-to-your-image.png](https://user-images.githubusercontent.com/91431846/226097546-8bd30151-f27d-4849-9b9a-e6c81d388263.png)" width="200" />
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/85529608/212031104-9015fdac-2dc6-441c-a798-01117e9f9d22.png" />
+</p>
 
