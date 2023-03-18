@@ -16,6 +16,7 @@
 		5D4C42CB29C43A92009F71DF /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4C42CA29C43A92009F71DF /* Extentions.swift */; };
 		5D4C42D129C43C2A009F71DF /* OnbordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4C42D029C43C2A009F71DF /* OnbordingView.swift */; };
 		5D4C42D429C451AF009F71DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5D4C42D629C451AF009F71DF /* Localizable.strings */; };
+		5D5C047B29C5ADA200871309 /* helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5C047A29C5ADA200871309 /* helper.swift */; };
 		D2D8E32029C439A600B8E4EC /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8E31F29C439A600B8E4EC /* SplashScreenView.swift */; };
 		F5986BBD29C3979400CEFED9 /* taqadamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5986BBC29C3979400CEFED9 /* taqadamApp.swift */; };
 		F5986BC129C3979500CEFED9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5986BC029C3979500CEFED9 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		5D4C42CA29C43A92009F71DF /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		5D4C42D029C43C2A009F71DF /* OnbordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbordingView.swift; sourceTree = "<group>"; };
 		5D4C42D529C451AF009F71DF /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5D5C047A29C5ADA200871309 /* helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helper.swift; sourceTree = "<group>"; };
 		D2D8E31F29C439A600B8E4EC /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		F5986BB929C3979400CEFED9 /* taqadam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = taqadam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5986BBC29C3979400CEFED9 /* taqadamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taqadamApp.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				5D4C42CA29C43A92009F71DF /* Extentions.swift */,
+				5D5C047A29C5ADA200871309 /* helper.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D5C047B29C5ADA200871309 /* helper.swift in Sources */,
 				5D4C42C929C435FE009F71DF /* HomePage.swift in Sources */,
 				5D4C42CB29C43A92009F71DF /* Extentions.swift in Sources */,
 				F5986BBD29C3979400CEFED9 /* taqadamApp.swift in Sources */,

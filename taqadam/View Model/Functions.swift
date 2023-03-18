@@ -12,11 +12,14 @@ class functions: ObservableObject {
    
 //    let  JobTitle :String
 //    let CompanyName :String
+    
+ 
   
     @Published var myVslue: GetInfo?
     let encoder = JSONEncoder()
     let decoder = JSONDecoder()
     @Published var array: [String]?
+  
     
     let headers: HTTPHeaders = [
         "Content-Type": "application/json",
@@ -31,6 +34,16 @@ class functions: ObservableObject {
     
     func getData(JobTitle : String , CompanyName :String)  {
         
+        var theQuestion : String{
+            if isEnglishLanguage(){
+                return "What is important skills for \(JobTitle) at \(CompanyName) Company in saudi arabia that i could do to get this job step by step with making every step in a new line and what’s the best way to learn those skills in details With specifying  in details which is best for beginners and which is for the advanced and if you could give me places i could learn in and if there are other titles for similar job resposibilities?"
+            }
+            else
+            {
+                return  "ما هي المهارات المهمة لـ \(JobTitle) في شركة \(CompanyName) بالضبط في المملكة العربية السعودية والتي يمكنني القيام بها للحصول على هذه الوظيفة خطوة بخطوة مع اتخاذ كل خطوة في سطر جديد وما هي أفضل طريقة لتعلم تلك المهارات بالتفصيل مع التحديد بالتفصيل ما هو الأفضل للمبتدئين وأيها للمتقدمين وإذا كان بإمكانك إعطائي أماكن يمكنني التعلم فيها وإذا كانت هناك ألقاب أخرى لمسؤوليات وظيفية مماثلة؟"
+            }
+        }
+        
         let urlString = "https://experimental.willow.vectara.io/v1/completions"
         
         guard let url = URL(string: urlString) else { return }
@@ -39,11 +52,12 @@ class functions: ObservableObject {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("4236465023", forHTTPHeaderField: "customer-id")
         request.setValue("zqt__INTfwOKqCNm1oNcq3JXbjDXA1GJgRNBOYVseg", forHTTPHeaderField: "x-api-key")
-                let prompt = "What kind of skills a \(JobTitle) at \(CompanyName) Company in Saudi Arabia that i could do to get this job step by step and make every step in a new line?"
-        
-        print(prompt)
+        let prompt = theQuestion
 
-        let requestInput = RequestInput(model: "text-davinci-003", prompt: prompt, max_tokens: 256, temperature: 0)
+        
+//        print(prompt)
+
+        let requestInput = RequestInput(model: "text-davinci-003", prompt: prompt, max_tokens: 1000, temperature: 0)
         
         encoder.outputFormatting = .prettyPrinted
         let body = try! encoder.encode(requestInput)
@@ -54,7 +68,7 @@ class functions: ObservableObject {
                 if let data = data {
                     do {
                         let response = try self.decoder.decode(GetInfo.self, from: data)
-                        print(response)
+//                        print(response)
                         self.myVslue = response
                         
                         if(self.myVslue?.choices[0].text != nil){
