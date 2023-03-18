@@ -15,7 +15,7 @@ struct OnbordingView: View {
                 Image("onbording")
                     .resizable()
                     .frame(width: 320 , height: 350)
-                Text("Find Your Future Career in any company you want")
+                Text("Find the required skills in any company that you want")
                     .foregroundColor(.gray)
                     .font(.system(size: 24))
                     .multilineTextAlignment(.center)
